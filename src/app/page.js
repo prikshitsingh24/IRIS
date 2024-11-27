@@ -138,14 +138,7 @@ const IRIS = () => {
   const fileInputRef = useRef();
   const [filename,setFilename] = useState('');
   const [file,setFile] = useState('');
-  const [messages, setMessages] = useState([
-    { text: "Hello! How can I help you today?", isAI: true },
-    { text: "Hi! I have a question.", isAI: false },
-    { text: "Sure, I'm here to help!", isAI: true },
-    { text: "Sure, I'm here to help!", isAI: true },
-    { text: "Sure, I'm here to help!", isAI: true },
-    { text: "Sure, I'm here to help!", isAI: true },
-  ]);
+  const [messages, setMessages] = useState([]);
 
   const handleSendMessage = (text) => {
     setMessages([...messages, { text, isAI: false }]);
@@ -155,10 +148,44 @@ const IRIS = () => {
   };
 
   const [popup,setPopup] = useState(true);
+  const [isSubmit,setIsSubmit] = useState(false);
 
-
-  const handlePopUpStartClick = () =>{
-    setPopup(false)
+  const handlePopUpStartClick = async() =>{
+    setIsSubmit(true)
+    const formData = new FormData();
+    formData.append("file", file);
+    try{
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/upload`,{
+        method:"POST",
+        body: formData,
+      })
+    
+      if(true){
+        const data = await response.json();
+        console.log(data)
+        try{
+          const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/interview/start`,{
+            method:"POST",
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+          },
+            body:JSON.stringify({session_id:"1",tts_enabled:true})
+          });
+          if(response.ok){
+            const data = await response.json();
+            console.log(data);
+            setPopup(false);
+          }
+          
+        }catch(error){
+          console.error(error);
+        }
+      }
+    }catch(error){
+      console.error(error)
+    }
+  
   }
 
   const handleFileChange = (event) => {
@@ -180,6 +207,7 @@ const IRIS = () => {
     setFilename('');
     setFile(null);
   };
+
 
 
   return (
@@ -212,13 +240,22 @@ const IRIS = () => {
           </div>
         )}
       </div>
-        <button
+        {isSubmit?(
+          <button
+          type="submit"
+          className={`p-2 rounded-xl w-full mt-2  outline-none text-white bg-non-selectable`}
+        >
+          Start
+        </button>
+        ):(
+          <button
         type="submit"
         className={`p-2 rounded-xl w-full mt-2  outline-none text-white ${filename ?'bg-selectable':'bg-non-selectable'}`}
         onClick={filename?handlePopUpStartClick:()=>{return}}
       >
         Start
       </button>
+        )}
       <input
             ref={fileInputRef}
             type="file"
