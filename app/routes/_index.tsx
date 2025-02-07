@@ -15,10 +15,10 @@ export default function Index() {
       </div>
       <div className="flex flex-row justify-center mt-10">
         <a href="signUp" className="mr-28">
-        <button className="primary-btn">Sign up</button>
+        <button className="primary-btn h-10 w-20">Sign up</button>
         </a>
         <a href="login">
-        <button className="secondary-btn">Login</button>
+        <button className="secondary-btn h-10 w-20">Login</button>
         </a>
       </div>
     </div>

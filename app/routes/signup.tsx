@@ -50,4 +50,4 @@ export async function action({ request }: ActionFunctionArgs) {
         console.log(isCompanyAdded.error)
     }
 
-  }
+}
