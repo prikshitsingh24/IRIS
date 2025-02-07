@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  @apply font-sans;
+
+}
+
+@layer components {
+    .primary-btn {
+      @apply bg-primary
+             text-white font-bold text-sm px-6 py-3 
+             rounded-lg shadow-md
+             border-[1px] border-white
+    }
+  
+    .primary-btn:hover {
+      @apply text-primary bg-white border-[1px] border-primary;
+    }
+  
+    .secondary-btn {
+      @apply bg-secondary
+             text-white font-bold text-sm px-6 py-3 
+             rounded-lg shadow-md 
+             border-[1px] border-white
+    }
+  
+    .secondary-btn:hover {
+      @apply text-secondary bg-white border-[1px] border-secondary;
+    }
+
+    .input-field{
+        @apply border-2 border-gray-400 outline-none rounded-lg pl-2 h-10
+    }
+
+    .signUp-btn{
+        @apply bg-primary
+        text-white font-bold text-sm px-6 py-2 
+        rounded-lg shadow-md
+        border-[1px] border-white
+    }
+
+    .signUp-btn:hover{
+        @apply text-primary bg-white border-[1px] border-primary;
+    }
+  }
