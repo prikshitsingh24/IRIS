@@ -7,7 +7,7 @@ export interface CompanyDetails {
 export interface InterviewDetails {
     interviewId:string,
     interviewName:string,
-    interviewDescription:string
-    status:boolean,
+    interviewDescription:string,
+    status:string,
     link:string
 }

@@ -8,7 +8,10 @@ export default function Interviews(){
     const interviews = useLoaderData<InterviewDetails[]>();
     return(
         <div className="w-full h-full mt-4">
-             <div className="grid grid-cols-4 mb-4">
+             <div className="grid grid-cols-[0.5fr_1fr_2.5fr_1fr_4fr] mb-4">
+                    <div>
+                        S.no
+                    </div>
                     <div>
                         Name
                     </div>
@@ -23,17 +26,20 @@ export default function Interviews(){
                     </div>
             </div>
             {interviews.map((interview,index)=>(
-                <div className="grid grid-cols-4 mb-4" key={index}>
+                <div className="grid grid-cols-[0.5fr_1fr_2.5fr_1fr_4fr] mb-4 border-2 rounded-md p-2 cursor-pointer" key={index}>
                     <div>
+                        {index+1}
+                    </div>
+                    <div className="w-full">
                     {interview.interviewName}
                     </div>
-                    <div>
-                        {interview.interviewDescription}
+                    <div className="w-full">
+                        {interview.interviewDescription.length>40?interview.interviewDescription.slice(0,40):interview.interviewDescription}{interview.interviewDescription.length>40?'...':''}
                     </div>
-                    <div>
+                    <div className={`w-full ${interview.status=="Active"?'text-green-400':'text-red-400'}`}>
                         {interview.status}
                     </div>
-                    <div>
+                    <div className="w-full">
                         <a href={interview.link} className="text-blue-400" target="_blank">{interview.link}</a>
                     </div>
                 </div>

@@ -18,8 +18,21 @@ export default function Portal(){
                 <div><span className="font-bold">Interview Name:</span> {details.interviews[0].interviewName}</div>
                 <div><span className="font-bold">Interview Description:</span> {details.interviews[0].interviewDescription}</div>
                 </div>
-                <div className="mt-4 border-t-2">
-                  
+                <div className="mt-5 border-t-2 grid grid-cols-2 pt-4 gap-20">
+                  <div className="w-full">
+                    <input type="text" className="input-field w-full" placeholder="Name"/>
+                  </div>
+                  <div className="w-full">
+                    <input type="text" className="input-field w-full" placeholder="Email"/>
+                  </div>
+                </div>
+                <div className="mt-5">
+                <div >
+                    <input type="number" className="input-field w-64" placeholder="Phone number"/>
+                  </div>
+                </div>
+                <div className="mt-4">
+                <button className="primary-btn w-28 h-10">Submit</button>
                 </div>
             </div>
             <div></div>
