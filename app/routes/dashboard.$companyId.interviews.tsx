@@ -8,7 +8,7 @@ export default function Interviews(){
     const interviews = useLoaderData<InterviewDetails[]>();
     return(
         <div className="w-full h-full mt-4">
-             <div className="grid grid-cols-[0.5fr_1fr_2.5fr_1fr_4fr] mb-4">
+             <div className="grid grid-cols-[0.5fr_1fr_2.5fr_1fr_4fr] mb-4 border-2 rounded-md p-2 border-black">
                     <div>
                         S.no
                     </div>
@@ -26,7 +26,7 @@ export default function Interviews(){
                     </div>
             </div>
             {interviews.map((interview,index)=>(
-                <div className="grid grid-cols-[0.5fr_1fr_2.5fr_1fr_4fr] mb-4 border-2 rounded-md p-2 cursor-pointer" key={index}>
+                <div className="grid grid-cols-[0.5fr_1fr_2.5fr_1fr_4fr] mb-4 border-2 rounded-md p-2 cursor-pointer hover:border-black" key={index}>
                     <div>
                         {index+1}
                     </div>
