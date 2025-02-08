@@ -36,7 +36,7 @@ export default function Interviews(){
                     <div className="w-full">
                         {interview.interviewDescription.length>40?interview.interviewDescription.slice(0,40):interview.interviewDescription}{interview.interviewDescription.length>40?'...':''}
                     </div>
-                    <div className={`w-full ${interview.status=="Active"?'text-green-400':'text-red-400'}`}>
+                    <div className={`w-full ${interview.status=="Active"?'text-green-500':'text-red-500'}`}>
                         {interview.status}
                     </div>
                     <div className="w-full">
