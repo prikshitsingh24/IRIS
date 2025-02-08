@@ -39,7 +39,7 @@ export async function action({ request }: ActionFunctionArgs) {
     const isCompanyAdded = await login(credentials);
 
     if (isCompanyAdded.status == "200"){
-        return redirect(`/dashboard/${isCompanyAdded.id}`)
+        return redirect(`/dashboard/${isCompanyAdded.id}/interviews`)
         
     }
 

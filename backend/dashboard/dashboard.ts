@@ -15,3 +15,17 @@ export async function fetchCompanyById(companyId:string) {
         return {status:"404",error:error}
     }
 }
+
+
+export async function fetchAllInterviewById(companyId:string){
+    try{
+        const allInterview = await prisma.interview.findMany({
+            where:{
+                companyId:companyId
+            }
+        })
+        return {status:"200",data:allInterview}
+    }catch(error){
+        return {status:"404",error:error}
+    }
+}

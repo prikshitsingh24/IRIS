@@ -19,13 +19,20 @@ model  Company{
   companyName     String  
   companyEmail    String
   companyPassword String
+  interviews      Interview[]
 }
 
 model Interview{
   interviewId           String  @id @default(uuid())
-  interviewName         String
+  interviewName         String  @unique
   interviewDescription  String
+  status                String
+  link                  String
   candidates            Candidate[]
+
+  companyId             String
+
+  company               Company @relation(fields: [companyId], references: [companyId])
 }
 
 model Candidate{
