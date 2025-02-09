@@ -35,9 +35,9 @@ export default function Interview(){
     }, []);
 
     return(
-        <div className="grid grid-cols-[1fr_1280px_1fr] w-full h-screen overflow-hidden p-4">
+        <div className="grid grid-cols-[1fr_1280px_1fr] w-full h-screen overflow-hidden p-4 ">
             <div></div>
-            <div className="w-full h-full border-2 rounded-lg  grid grid-rows-[2fr_4fr]">
+            <div className="w-full h-full border-2 rounded-lg grid grid-rows-[2fr_4fr] relative">
                 <div className="grid grid-cols-2 border-b-2">
                     <div className="border-r-2 p-2">
                         <div className="text-2xl">{details.interview.interviewName}</div>
@@ -53,6 +53,32 @@ export default function Interview(){
                         ></video>
                         </div>
                         <div className="mt-2">{details.candidate.candidateName}</div>
+                    </div>
+                </div>
+                <div className="w-full">
+                    <div className="absolute bottom-2 w-full">
+                    <div className="flex items-center gap-2 mt-4">
+                        <div className='rounded-lg w-full h-12 flex flex-row justify-between border-2 border-foreground ml-2'>
+                        <input
+                            type="text"
+                            placeholder="Write your answer..."
+                            className="flex-1 p-3 outline:none rounded-lg bg-background focus:outline-none focus:border-blue-500 "
+                        />
+                        <button
+                            type="button"
+                            className={`mr-2 mt-1 mb-1 p-2 rounded-full hover:bg-gray-300`}
+                        >
+                        <img src={"/micIcon.png"} alt="searchIcon" width={20} height={20}></img>
+                        </button>
+                        </div>
+                        <button
+                            type="submit"
+                            className={`p-2 rounded-xl h-12 w-28 hover:scale-105 transition-transform bg-green-500 mr-2`}
+                            aria-label="Send Message"
+                        >
+                            Submit
+                        </button>
+                        </div>
                     </div>
                 </div>
             </div>
