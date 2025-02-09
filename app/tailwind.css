@@ -45,4 +45,10 @@ body {
     .auth-btn:hover{
         @apply text-primary bg-white border-[1px] border-primary;
     }
+
+    .checkBox {
+      @apply w-5 h-5; /* Adjust width and height */
+    
+    }
+  
   }

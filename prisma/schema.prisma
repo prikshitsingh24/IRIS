@@ -40,6 +40,8 @@ model Candidate{
   candidateName   String
   candidateEmail  String
   candidateNumber String
+  interviewStatus String
+  score           String
 
   interviewId     String
 

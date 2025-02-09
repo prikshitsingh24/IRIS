@@ -15,5 +15,7 @@ export interface InterviewDetails {
 export interface Candidate{
     candidateName:string,
     candidateEmail:string,
-    candidateNumber:string
+    candidateNumber:string,
+    interviewStatus:string,
+    score:string
 }

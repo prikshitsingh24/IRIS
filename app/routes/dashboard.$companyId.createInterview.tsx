@@ -13,9 +13,9 @@ export default function CreateInterview(){
                     <input type="text" name="interviewDescription"  className="input-field" placeholder="Description"/>
                 </div>
                 <div className="flex flex-col items-start mt-4">
-                <div>
-                    Interview status: 
-                    <input type="checkbox" name="status" className="checkBox" value="Active"/>
+                <div className="w-full h-full flex flex-row items-center">
+                        <div className="mr-2">Interview status: </div>
+                        <input type="checkbox" name="status" className="checkBox" value="Active"/>
                 </div>
                 <button className="secondary-btn h-10 w-36 mt-5">Create</button>
                 </div>

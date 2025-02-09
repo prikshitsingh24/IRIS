@@ -34,6 +34,8 @@ export async function registerCandidateById(candidate:Candidate,interviewId:stri
                 candidateName:candidate.candidateName,
                 candidateNumber:candidate.candidateNumber,
                 candidateEmail:candidate.candidateEmail,
+                interviewStatus: "false",
+                score:"0",
                 interviewId:interviewId
             }
         })
