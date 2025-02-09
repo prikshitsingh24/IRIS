@@ -28,7 +28,6 @@ export default function SignUp(){
 export async function action({ request }: ActionFunctionArgs) {
     const formData = await request.formData();
     const formObject = Object.fromEntries(formData);
-    console.log(formData)
     const companyName = formObject['companyName'] as string;
     const companyEmail = formObject['companyEmail'] as string;
     const companyPassword = formObject['companyPassword'] as string;

@@ -5,7 +5,7 @@ import { Interview } from "types/interview";
 
 export default function CreateInterview(){
     return (
-        <div className="w-full h-full">
+        <div className="w-full h-full mt-4">
             <div className="text-lg">Create Your Interview</div>
             <Form method="post" className="mt-5">
                 <div className="flex flex-col space-y-8">

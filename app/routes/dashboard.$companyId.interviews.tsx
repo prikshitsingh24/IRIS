@@ -5,7 +5,7 @@ import { InterviewDetails } from "types/dashboard";
 
 
 export default function Interviews(){
-    const interviews = useLoaderData<InterviewDetails[]>();
+    const interviews = useLoaderData<InterviewDetails[] | any>();
     return(
         <div className="w-full h-full mt-4">
              <div className="grid grid-cols-[0.5fr_1fr_2.5fr_1fr_4fr] mb-4 border-2 rounded-md p-2 border-black">
@@ -25,8 +25,9 @@ export default function Interviews(){
                         Link
                     </div>
             </div>
-            {interviews.map((interview,index)=>(
-                <div className="grid grid-cols-[0.5fr_1fr_2.5fr_1fr_4fr] mb-4 border-2 rounded-md p-2 cursor-pointer hover:border-black" key={index}>
+            {interviews.data.map((interview:InterviewDetails,index:number)=>(
+                <NavLink to={`/dashboard/${interviews.id}/${interview.interviewId}`}>
+                    <div className="grid grid-cols-[0.5fr_1fr_2.5fr_1fr_4fr] mb-4 border-2 rounded-md p-2 cursor-pointer hover:border-black" key={index}>
                     <div>
                         {index+1}
                     </div>
@@ -43,6 +44,7 @@ export default function Interviews(){
                         <a href={interview.link} className="text-blue-400" target="_blank">{interview.link}</a>
                     </div>
                 </div>
+                </NavLink>
             ))}
         </div>
     )
@@ -52,7 +54,7 @@ export async function loader({params}:LoaderFunctionArgs){
     const companyId = await params.companyId;
     if (companyId) {
         const interviews = await fetchAllInterviewById(companyId);
-        return interviews.data;
+        return {id:companyId,data:interviews.data};
     }
     return redirect("/")
 }

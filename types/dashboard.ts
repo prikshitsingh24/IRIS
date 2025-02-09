@@ -11,3 +11,9 @@ export interface InterviewDetails {
     status:string,
     link:string
 }
+
+export interface Candidate{
+    candidateName:string,
+    candidateEmail:string,
+    candidateNumber:string
+}

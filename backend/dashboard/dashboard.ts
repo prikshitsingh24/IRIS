@@ -29,3 +29,20 @@ export async function fetchAllInterviewById(companyId:string){
         return {status:"404",error:error}
     }
 }
+
+
+export async function fetchInterviewById(interviewId:string){
+    try{
+        const interview = await prisma.interview.findUnique({
+            where:{
+                interviewId:interviewId
+            },
+            include:{
+                candidates:true
+            }
+        })
+        return {status:"200",data:interview}
+    }catch(error){
+        return {status:"404",error:error}
+    }
+}
