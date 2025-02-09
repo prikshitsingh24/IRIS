@@ -53,7 +53,19 @@ export async function registerCandidateById(candidate:Candidate,interviewId:stri
             from: process.env.MAIL,
             to: registeredCandidate.candidateEmail,
             subject: 'Interview Invitation from ' + companyName,
-            text: 'The link for your interview process:\n' + interviewLink
+            text: `
+            The link for your interview with IRIS: ${interviewLink}
+          
+            Instructions:
+          
+            1. Please ensure your webcam is set up and working properly.
+            2. Close all unnecessary tabs and applications running on your device to ensure optimal performance.
+            3. Only one person should be present in the camera frame during the interview, as you will be monitored.
+            4. Ensure you have a stable internet connection to avoid interruptions during the interview.
+            
+            Best regards,
+            ${companyName} Team
+            `
           };
           
           transporter.sendMail(mailOptions, function(error, info){
