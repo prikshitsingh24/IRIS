@@ -53,6 +53,7 @@ export default function Portal(){
                   </div>
                   <div className="mt-4">
                     <input type="text" hidden name="interviewId" value={details.interviews[0].interviewId} />
+                    <input type="text" hidden name="companyName" value={details.companyName} />
                   <button className="primary-btn w-28 h-10">Submit</button>
                   </div>
                 </Form>
@@ -90,7 +91,7 @@ export async function action({request}:ActionFunctionArgs){
   const candidateEmail = formObject['candidateEmail'] as string;
   const candidateNumber = formObject["candidateNumber"] as string;
   const interviewId = formObject["interviewId"] as string;
-
+  const companyName = formObject["companyName"] as string;
 
   const candidate: Candidate = {
     candidateName,
@@ -98,7 +99,7 @@ export async function action({request}:ActionFunctionArgs){
     candidateNumber
   };
 
-  const isCandidateRegistered = await registerCandidateById(candidate,interviewId);
+  const isCandidateRegistered = await registerCandidateById(candidate,interviewId,companyName);
 
   if (isCandidateRegistered.status =="200"){
     return true;

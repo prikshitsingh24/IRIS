@@ -14,8 +14,17 @@ export default function Dashboard(){
                 </div>
                 <div className="mt-4 border-2 h-full rounded-lg p-2">
                     <div className="w-full h-full">
-                        <div className="flex flex-row justify-end">
-                            <NavLink to="createInterview"><button className="primary-btn h-10 w-36">Create Interview</button></NavLink>
+                        <div className="grid grid-cols-[4fr_0.4fr_1fr] gap-10 ">
+                            <div><input type="text" className="input-field w-full" placeholder="Search."/></div>
+                            <div className="flex justify-end w-full">
+                            <select className="border-2 p-2 outline-none border-gray-400 rounded-lg h-[40px]">
+                                <option value="">Filter</option>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="paused">Paused</option>
+                            </select>
+                            </div>
+                            <div className="flex flex-row justify-end"><NavLink to="createInterview"><button className="primary-btn h-10 w-36">Create Interview</button></NavLink></div>
                         </div>
                         <div>
                             <Outlet></Outlet>
