@@ -19,7 +19,12 @@ export default {
       colors: {
         primary: "#007FFF",
         secondary: "#662d91",
-        textColor: "#333333"
+        textColorBlue: "#3498DB",
+        textColorWhite:"#FFFFFF",
+        textColorGray:"#2C3E50",
+        bgColor1:"#171717",
+        bgColor2:'#FFFFFF',
+        bgColor3:"#262626"
       },
     },
   },

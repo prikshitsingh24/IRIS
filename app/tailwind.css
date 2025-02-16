@@ -12,23 +12,22 @@ body {
     .primary-btn {
       @apply bg-primary
              text-white font-bold text-sm flex justify-center items-center
-             rounded-lg shadow-md
-             border-[1px] border-white
+             rounded-full shadow-md
     }
   
     .primary-btn:hover {
-      @apply text-primary bg-white border-[1px] border-primary;
+      @apply scale-105 border-primary;
     }
   
     .secondary-btn {
-      @apply bg-secondary
-             text-white font-bold text-sm justify-center items-center
-             rounded-lg shadow-md 
-             border-[1px] border-white
+      @apply 
+             text-textColorBlue font-bold text-sm justify-center items-center
+             rounded-full shadow-md 
+             border-2 border-primary
     }
   
     .secondary-btn:hover {
-      @apply text-secondary bg-white border-[1px] border-secondary;
+      @apply bg-primary text-white;
     }
 
     .input-field{
