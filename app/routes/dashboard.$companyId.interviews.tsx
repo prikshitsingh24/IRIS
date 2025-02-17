@@ -9,7 +9,7 @@ export default function Interviews(){
     return(
         <div className="w-full h-[760px] overflow-y-scroll grid grid-cols-3 gap-4 mt-4">
             {interviews.data.map((interview:InterviewDetails,index:number)=>(
-                    <div className="border-2 border-gray-500 mb-4 rounded-md p-2 cursor-pointer  text-textColorWhite" key={index}>
+                    <div className="border border-gray-500 mb-4 rounded-md p-2 cursor-pointer  text-textColorWhite" key={index}>
                     <div className="w-full text-2xl flex flex-row justify-between">
                     <div>{interview.interviewName}</div>
                     <div className={`${interview.status=="Active"?'text-green-500 flex justify-center items-center rounded-full pl-2 pr-2 bg-green-900':'text-red-500 flex justify-center items-center rounded-full pl-2 pr-2 bg-red-900'} text-sm `}>
