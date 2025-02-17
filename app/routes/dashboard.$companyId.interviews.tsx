@@ -7,44 +7,31 @@ import { InterviewDetails } from "types/dashboard";
 export default function Interviews(){
     const interviews = useLoaderData<InterviewDetails[] | any>();
     return(
-        <div className="w-full h-full mt-4">
-             <div className="grid grid-cols-[0.5fr_1fr_2.5fr_1fr_4fr] mb-4 border-2 rounded-md p-2 border-black">
-                    <div>
-                        S.no
-                    </div>
-                    <div>
-                        Name
-                    </div>
-                    <div>
-                        Description
-                    </div>
-                    <div>
-                        Status
-                    </div>
-                    <div>
-                        Link
-                    </div>
-            </div>
+        <div className="w-full h-[760px] overflow-y-scroll grid grid-cols-3 gap-4 mt-4">
             {interviews.data.map((interview:InterviewDetails,index:number)=>(
-                <NavLink to={`/dashboard/${interviews.id}/${interview.interviewId}`}>
-                    <div className="grid grid-cols-[0.5fr_1fr_2.5fr_1fr_4fr] mb-4 border-2 rounded-md p-2 cursor-pointer hover:border-black" key={index}>
-                    <div>
-                        {index+1}
-                    </div>
-                    <div className="w-full">
-                    {interview.interviewName}
-                    </div>
-                    <div className="w-full">
-                        {interview.interviewDescription.length>40?interview.interviewDescription.slice(0,40):interview.interviewDescription}{interview.interviewDescription.length>40?'...':''}
-                    </div>
-                    <div className={`w-full ${interview.status=="Active"?'text-green-500':'text-red-500'}`}>
+                    <div className="border-2 border-gray-500 mb-4 rounded-md p-2 cursor-pointer  text-textColorWhite" key={index}>
+                    <div className="w-full text-2xl flex flex-row justify-between">
+                    <div>{interview.interviewName}</div>
+                    <div className={`${interview.status=="Active"?'text-green-500':'text-red-500'} text-sm`}>
                         {interview.status}
                     </div>
-                    <div className="w-full">
-                        <a href={interview.link} className="text-blue-400" target="_blank">{interview.link}</a>
                     </div>
+                    <div className="w-full text-sm mt-4">
+                    Date: 12/24/24
+                    </div>
+                    <div className="w-full text-sm mt-4">
+                    Description: {interview.interviewDescription.length>40?interview.interviewDescription.slice(0,40):interview.interviewDescription}{interview.interviewDescription.length>40?'...':''}
+                    </div>
+                    <div className="w-full text-sm mt-4">
+                    Candidates: 3
+                    </div>
+                    <NavLink to={`/dashboard/${interviews.id}/${interview.interviewId}`}>
+                    <div className="flex flex-row justify-center mt-6">
+                        <div className="border border-btnColorBlue text-btnColorBlue hover:bg-blue-950 w-full flex justify-center items-center p-2 rounded-md">View Candidates</div>
+                    </div>
+                    </NavLink>
+                    
                 </div>
-                </NavLink>
             ))}
         </div>
     )
