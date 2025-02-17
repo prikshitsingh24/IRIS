@@ -12,7 +12,7 @@ export default function Interview(){
     if (interview.status == "Inactive"){
         return (
             <div className="w-full h-full mt-4">
-               <div className="text-lg">Update Your Interview</div>
+               <div className="text-lg  text-textColorWhite">Update Your Interview</div>
                 <Form method="post" className="mt-5">
                     <div className="flex flex-col space-y-8">
                         <input type="text" name="interviewName" className="input-field w-1/2" placeholder="Name" defaultValue={interview.interviewName}/>
@@ -20,7 +20,7 @@ export default function Interview(){
                     </div>
                     <div className="flex flex-col items-start mt-4">
                     <div className="w-full h-full flex flex-row items-center">
-                        <div className="mr-2">Interview status: </div>
+                        <div className="mr-2  text-textColorWhite">Interview status: </div>
                         <input type="checkbox" name="status" className="checkBox" value="Active" defaultChecked={false}/>
                     </div>
                     <button className="secondary-btn h-10 w-36 mt-5">Update</button>
@@ -33,22 +33,22 @@ export default function Interview(){
     if (interview.status == "Active") {
         return (
             <div className="w-full h-full mt-4">
-                <div className="text-3xl">
+                <div className="text-3xl  text-textColorWhite">
                     {interview.interviewName}
                 </div>
-                <div className="mt-2 w-full ">
+                <div className="mt-2 w-full  text-textColorWhite ">
                     {interview.interviewDescription}
                 </div>
-                <div className="mt-2">
+                <div className="mt-2  text-textColorWhite">
                     Status: {interview.status}
                 </div>
-                <div className="mt-2">
+                <div className="mt-2  text-textColorWhite">
                     Link: <a href={interview.link} target="_blank"><span className="text-blue-400">{interview.link}</span></a>
                 </div>
-                <div className="mt-10 text-xl">
+                <div className="mt-10 text-xl  text-textColorWhite">
                     Candidates
                 </div>
-                <div className="grid grid-cols-[1fr_3fr_4fr_3fr_2fr] mb-4 border-2 rounded-md p-2 border-black mt-2">
+                <div className="grid grid-cols-[1fr_3fr_4fr_3fr_2fr] mb-4 border rounded-md p-2 border-gray-500 cursor-pointer  text-textColorWhite mt-2">
                         <div>
                             S.no
                         </div>
@@ -66,7 +66,7 @@ export default function Interview(){
                         </div>
                 </div>
                 {interview.candidates.map((candidate:Candidate,index:any)=>(
-                    <div className="grid grid-cols-[1fr_3fr_4fr_3fr_2fr] mb-4 border-2 rounded-md p-2 cursor-pointer hover:border-black mt-2">
+                    <div className="grid grid-cols-[1fr_3fr_4fr_3fr_2fr] mb-4 border rounded-md p-2 cursor-pointer border-gray-500 text-textColorWhite mt-2">
                        <div>
                            {index+1}
                        </div>
