@@ -12,7 +12,7 @@ export default function Interviews(){
                     <div className="border-2 border-gray-500 mb-4 rounded-md p-2 cursor-pointer  text-textColorWhite" key={index}>
                     <div className="w-full text-2xl flex flex-row justify-between">
                     <div>{interview.interviewName}</div>
-                    <div className={`${interview.status=="Active"?'text-green-500':'text-red-500'} text-sm`}>
+                    <div className={`${interview.status=="Active"?'text-green-500 flex justify-center items-center rounded-full pl-2 pr-2 bg-green-900':'text-red-500 flex justify-center items-center rounded-full pl-2 pr-2 bg-red-900'} text-sm `}>
                         {interview.status}
                     </div>
                     </div>
