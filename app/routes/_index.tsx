@@ -10,9 +10,7 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return(
     <div className="overflow-y-scroll h-screen w-full">
-    <div className="bg-bgColor1 w-full">
-      <div className="w-full h-full grid grid-cols-[1fr_1680px_1fr] bg-bgColor1">
-      <div className="fixed left-0 right-0 bg-bgColor1 grid grid-cols-[1fr_1680px_1fr] h-14 z-50 shadow-md">
+       <div className="fixed left-0 right-0 bg-bgColor1 grid grid-cols-[1fr_1680px_1fr] h-14 z-50 shadow-md">
         <div ></div>
         <div className="flex flex-row h-full w-full items-center justify-between">
           <div className="text-textColorBlue text-2xl font-bold">IRIS</div>
@@ -30,6 +28,8 @@ export default function Index() {
         </div>
         <div></div>
       </div>
+    <div className="bg-bgColor1 w-full">
+      <div className="w-full h-full grid grid-cols-[1fr_1680px_1fr] bg-bgColor1">
     <div></div>
     <div className="bg-bgColor1 grid grid-rows-2 gap-80">
     <div className="flex flex-row mt-28 items-center justify-between">
@@ -71,17 +71,17 @@ export default function Index() {
           </div>
           <div className="grid grid-cols-3 gap-10 w-full mt-10">
             <div className="rounded-lg shadow-md hover:shadow-lg h-56 p-4">
-              <div className="bg-textColorBlue h-20 w-20 rounded-md mb-5"></div>
+              <div className="bg-btnColorBlue h-20 w-20 rounded-md mb-5"></div>
               <div className="text-textColorGray text-lg font-bold">AI-Powered Analysis</div>
               <div className="text-textColorGray text-sm mt-4">Advanced algorithm evaluate candidate's response, providing<br />unbiased and comprehensive assessment</div>
             </div>
             <div className="rounded-lg shadow-md hover:shadow-lg h-56 p-4">
-              <div className="bg-textColorBlue h-20 w-20 rounded-md mb-5"></div>
+              <div className="bg-btnColorBlue h-20 w-20 rounded-md mb-5"></div>
               <div className="text-textColorGray text-lg font-bold">Smart Scheduling</div>
               <div className="text-textColorGray text-sm mt-4">Automate interview scheduling with smart calendar intergration<br />and time zone management</div>
             </div>
             <div className="rounded-lg shadow-md hover:shadow-lg h-56 p-4">
-              <div className="bg-textColorBlue h-20 w-20 rounded-md mb-5"></div>
+              <div className="bg-btnColorBlue h-20 w-20 rounded-md mb-5"></div>
               <div className="text-textColorGray text-lg font-bold">Analytic Dashboard</div>
               <div className="text-textColorGray text-sm mt-4">Comprehensive insights and analytics to track your hiring<br />process and make data-driven decisions.</div>
             </div>
@@ -99,13 +99,13 @@ export default function Index() {
           <div className="text-lg text-textColorWhite mt-2">Simple steps to transform your interview process</div>
         </div>
         <div className="flex flex-row justify-center items-center mt-14 space-x-1">
-          <div className="w-20 h-20 rounded-full bg-primary text-textColorWhite flex justify-center items-center text-lg">1</div>
-          <div className="h-1 w-80 bg-primary"></div>
-          <div className="w-20 h-20 rounded-full bg-primary text-textColorWhite flex justify-center items-center text-lg">2</div>
-          <div className="h-1 w-80 bg-primary"></div>
-          <div className="w-20 h-20 rounded-full bg-primary text-textColorWhite flex justify-center items-center text-lg">3</div>
-          <div className="h-1 w-80 bg-primary"></div>
-          <div className="w-20 h-20 rounded-full bg-primary text-textColorWhite flex justify-center items-center text-lg">4</div>
+          <div className="w-20 h-20 rounded-full bg-btnColorBlue text-textColorWhite flex justify-center items-center text-lg">1</div>
+          <div className="h-1 w-80 bg-btnColorBlue"></div>
+          <div className="w-20 h-20 rounded-full bg-btnColorBlue text-textColorWhite flex justify-center items-center text-lg">2</div>
+          <div className="h-1 w-80 bg-btnColorBlue"></div>
+          <div className="w-20 h-20 rounded-full bg-btnColorBlue text-textColorWhite flex justify-center items-center text-lg">3</div>
+          <div className="h-1 w-80 bg-btnColorBlue"></div>
+          <div className="w-20 h-20 rounded-full bg-btnColorBlue text-textColorWhite flex justify-center items-center text-lg">4</div>
         </div>
         <div className="flex flex-row justify-center items-center mt-2 space-x-1">
           <div className="text-lg flex flex-col items-center text-textColorWhite">
@@ -134,8 +134,8 @@ export default function Index() {
             <div className="mt-2 text-sm">Transform your hiring process today with IRIS</div>
           </div>
           <div className="flex flex-row space-x-8">
-            <div className="h-14 flex justify-center items-center w-36 p-2 text-textColorWhite text-lg rounded-lg bg-primary">Start Free Trial</div>
-            <div className="h-14 flex justify-center items-center w-40 p-2 text-lg rounded-lg border-2 border-primary text-primary">Schedule Demo</div>
+            <div className="h-14 flex justify-center items-center w-36 p-2 text-textColorWhite text-lg rounded-lg bg-btnColorBlue hover:scale-105 transition-transform cursor-pointer">Start Free Trial</div>
+            <div className="h-14 flex justify-center items-center w-40 p-2 text-lg rounded-lg border-2 border-btnColorBlue text-btnColorBlue cursor-pointer">Schedule Demo</div>
           </div>
         </div>
       </div>
@@ -154,42 +154,42 @@ export default function Index() {
           </div>
           <div className="grid grid-cols-2 gap-10 w-full mt-10">
             <div className="rounded-lg shadow-md flex flex-row items-center hover:shadow-lg space-x-5 h-20 p-4">
-              <div className="bg-textColorBlue h-14 w-14 rounded-md mb-5"></div>
+              <div className="bg-btnColorBlue h-14 w-14 rounded-md mb-5"></div>
               <div className="text-textColorGray text-lg font-bold">
                 Save Time and Resources
                 <div className="text-textColorGray text-sm font-medium">Reduce interview time by 60% with automated scheduling and AI-powered assessments</div>
               </div> 
             </div>
             <div className="rounded-lg shadow-md hover:shadow-lg h-20 p-4 space-x-5 flex flex-row items-center">
-              <div className="bg-textColorBlue h-14 w-14 rounded-md mb-5"></div>
+              <div className="bg-btnColorBlue h-14 w-14 rounded-md mb-5"></div>
               <div className="text-textColorGray text-lg font-bold">
                 Data-Driven Insights
                 <div className="text-textColorGray text-sm font-medium">Make informed decisions with comprehensive analytics and reporting</div>
               </div>
             </div>
             <div className="rounded-lg shadow-md hover:shadow-lg h-20 p-4 space-x-5 flex flex-row items-center">
-              <div className="bg-textColorBlue h-14 w-14 rounded-md mb-5"></div>
+              <div className="bg-btnColorBlue h-14 w-14 rounded-md mb-5"></div>
               <div className="text-textColorGray text-lg font-bold">
                 Unbiased Evaluation
                 <div className="text-textColorGray text-sm font-medium">Ensure fair assessment with AI-driven analysis of candidate responses</div>
               </div>
             </div>
             <div className="rounded-lg shadow-md flex flex-row items-center hover:shadow-lg space-x-5 h-20 p-4">
-              <div className="bg-textColorBlue h-14 w-14 rounded-md mb-5"></div>
+              <div className="bg-btnColorBlue h-14 w-14 rounded-md mb-5"></div>
               <div className="text-textColorGray text-lg font-bold">
                 Scalable Solution
                 <div className="text-textColorGray text-sm font-medium">Handle multiple interviews simultaneously with ease and consistency</div>
               </div> 
             </div>
             <div className="rounded-lg shadow-md flex flex-row items-center hover:shadow-lg space-x-5 h-20 p-4">
-              <div className="bg-textColorBlue h-14 w-14 rounded-md mb-5"></div>
+              <div className="bg-btnColorBlue h-14 w-14 rounded-md mb-5"></div>
               <div className="text-textColorGray text-lg font-bold">
                 Increased Efficiency
                 <div className="text-textColorGray text-sm font-medium">Streamline your hiring process with automated workflows and instant feedback</div>
               </div> 
             </div>
             <div className="rounded-lg shadow-md flex flex-row items-center hover:shadow-lg space-x-5 h-20 p-4">
-              <div className="bg-textColorBlue h-14 w-14 rounded-md mb-5"></div>
+              <div className="bg-btnColorBlue h-14 w-14 rounded-md mb-5"></div>
               <div className="text-textColorGray text-lg font-bold">
                 Secure Platform
                 <div className="text-textColorGray text-sm font-medium">Enterprise-grade security for your sensitive interview data</div>
@@ -197,7 +197,7 @@ export default function Index() {
             </div>
           </div>
           <div className="flex flex-row justify-center mt-20">
-            <div className="flex justify-center items-center bg-primary text-lg  rounded-lg text-textColorWhite p-4 ">Start Transforming Your Hiring Process</div>
+            <div className="flex justify-center items-center bg-btnColorBlue text-lg  rounded-lg text-textColorWhite p-4 hover:scale-105 transition-transform cursor-pointer">Start Transforming Your Hiring Process</div>
           </div>
         </div>
         <div></div>
@@ -211,44 +211,24 @@ export default function Index() {
           <div className="text-4xl text-textColorWhite font-bold">Simple, Transparent Pricing</div>
           <div className="text-lg text-textColorWhite mt-2">Choose the plan that best fits your needs</div>
         </div>
-        <div className="flex flex-row justify-center items-center mt-14 space-x-1">
-          <div className="w-20 h-20 rounded-full bg-primary text-textColorWhite flex justify-center items-center text-lg">1</div>
-          <div className="h-1 w-80 bg-primary"></div>
-          <div className="w-20 h-20 rounded-full bg-primary text-textColorWhite flex justify-center items-center text-lg">2</div>
-          <div className="h-1 w-80 bg-primary"></div>
-          <div className="w-20 h-20 rounded-full bg-primary text-textColorWhite flex justify-center items-center text-lg">3</div>
-          <div className="h-1 w-80 bg-primary"></div>
-          <div className="w-20 h-20 rounded-full bg-primary text-textColorWhite flex justify-center items-center text-lg">4</div>
-        </div>
-        <div className="flex flex-row justify-center items-center mt-2 space-x-1">
-          <div className="text-lg flex flex-col items-center text-textColorWhite">
-            Create Interview
-            <div className="text-sm text-center">Set up your interview parameters and questions <br /> using AI templates</div>
+        <div className="flex flex-row justify-center items-center mt-14 gap-10 w-full">
+          <div className="w-[400px] h-[500px] relative rounded-lg space-y-4 bg-bgColor3 border border-bgColor3 hover:border-primary  text-textColorWhite flex flex-col items-center p-6 text-lg">
+           <div className="text-2xl">Starter</div>
+           <div><span className="text-3xl text-textColorBlue">$49</span>/month</div>
+           <div className="text-sm ">Perfect for small teams</div>
+           <div className="absolute bottom-10 bg-primary w-1/2 p-2 rounded-lg flex justify-center cursor-pointer">Get Started</div>
           </div>
-          <div className="w-20"></div>
-          <div className="text-lg flex flex-col items-center text-textColorWhite">
-            Invite Candidate
-            <div className="text-sm text-center">Send automated invitation and schedule interview</div>
+          <div className="w-[400px] h-[500px] relative rounded-lg space-y-4 bg-bgColor3 border border-bgColor3 hover:border-primary text-textColorWhite flex flex-col  p-6 items-center text-lg">
+          <div className="text-2xl">Professional</div>
+           <div><span className="text-3xl text-textColorBlue">$49</span>/month</div>
+           <div className="text-sm ">Perfect for small teams</div>
+           <div className="absolute bottom-10 bg-primary w-1/2 p-2 rounded-lg flex justify-center cursor-pointer">Get Started</div>
           </div>
-          <div className="w-20"></div>
-          <div className="text-lg flex flex-col items-center text-textColorWhite">
-            AI Assessments
-            <div className="text-sm text-center">Let our AI analyze response and generic insights</div>
-          </div>
-          <div className="w-20"></div>
-          <div className="text-lg flex flex-col items-center text-textColorWhite">
-            Review Results
-            <div className="text-sm text-center">Get comprehensive reports and make informed<br />decisions.</div>
-          </div>
-        </div>
-        <div className="mt-28 flex flex-row justify-between items-center h-40 w-1/2 p-4 rounded-lg bg-bgColor3">
-          <div className="text-textColorWhite text-2xl">
-            Ready to Get Started ?
-            <div className="mt-2 text-sm">Transform your hiring process today with IRIS</div>
-          </div>
-          <div className="flex flex-row space-x-8">
-            <div className="h-14 flex justify-center items-center w-36 p-2 text-textColorWhite text-lg rounded-lg bg-primary">Start Free Trial</div>
-            <div className="h-14 flex justify-center items-center w-40 p-2 text-lg rounded-lg border-2 border-primary text-primary">Schedule Demo</div>
+          <div className="w-[400px] h-[500px] relative rounded-lg space-y-4 bg-bgColor3 border border-bgColor3 hover:border-primary text-textColorWhite flex flex-col  p-6  items-center text-lg">
+          <div className="text-2xl">Enterprise</div>
+           <div><span className="text-3xl text-textColorBlue">$49</span>/month</div>
+           <div className="text-sm ">Perfect for small teams</div>
+           <div className="absolute bottom-10 bg-primary w-1/2 p-2 rounded-lg flex justify-center cursor-pointer">Get Started</div>
           </div>
         </div>
       </div>

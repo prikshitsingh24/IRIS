@@ -24,7 +24,8 @@ export default {
         textColorGray:"#2C3E50",
         bgColor1:"#171717",
         bgColor2:'#FFFFFF',
-        bgColor3:"#262626"
+        bgColor3:"#262626",
+        btnColorBlue:"#3498DB"
       },
     },
   },
