@@ -6,14 +6,21 @@ import { LoginCredentails } from "types/auth";
 
 export default function Login(){
     return (
-        <div className="w-full h-screen">
+        <div className="w-full h-screen bg-bgColor1">
         <div className="flex flex-row justify-center h-full items-center">
-            <div className="flex flex-col border-2 border-gray-400 rounded-lg p-8 shadow-lg">
-            <div className="flex flex-row justify-center text-xl font-bold">Welcome to IRIS,</div>
-            <Form method="post" className="mt-10">
+            <div className="flex flex-col bg-bgColor3 h-[400px] rounded-lg p-8 shadow-lg">
+            <div className="text-md text-textColorWhite mt-2 text-2xl flex justify-center">Welcome <span className="text-textColorBlue ml-2">back</span></div>
+            <Form method="post" className="mt-8">
                 <div className="flex flex-col space-y-5">
-                <input type="email" name="companyEmail" className="input-field" placeholder="Company Email" required/>
-                <input type="password" name="companyPassword" className="input-field" placeholder="Password" required/>
+                <div>
+                <div className="text-white text-[13px] ml-1">Company Email</div>
+                <input type="email" name="companyEmail" className="border-2 text-white border-gray-400 bg-bgColor3 outline-none rounded-lg pl-2 h-10" placeholder="Company Email" required/>
+                </div>
+                <div>
+                <div className="text-white text-[13px] ml-1">Password</div>
+                <input type="password" name="companyPassword" className="border-2 text-white border-gray-400 bg-bgColor3 outline-none rounded-lg pl-2 h-10" placeholder="Password" required/>
+                </div>
+                <div></div>
                 <button className="auth-btn">Login</button>
                 </div>
             </Form>
