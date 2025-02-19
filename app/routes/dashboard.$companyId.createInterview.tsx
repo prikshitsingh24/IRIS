@@ -14,8 +14,8 @@ export default function CreateInterview(){
                 </div>
                 <div className="flex flex-col items-start mt-4">
                 <div className="w-full h-full flex flex-row items-center">
-                        <div className="mr-2  text-textColorWhite">Interview status: </div>
-                        <input type="checkbox" name="status" className="checkBox" value="Active"/>
+                        <div className="mr-2  text-textColorWhite">Schedule: </div>
+                        <input type="date" name="schedule" className="ml-2 bg-bgColor3 text-textColorWhite outline-none" />
                 </div>
                 <button className="secondary-btn h-10 w-36 mt-5">Create</button>
                 </div>
@@ -31,7 +31,9 @@ export async function action({request,params}:ActionFunctionArgs){
     if (companyId) {
         const interviewName = formObject['interviewName'] as string;
         const interviewDescription = formObject['interviewDescription'] as string;
-        const status = formObject["status"] as string || "Inactive";
+        const schedule = formObject['schedule'] as string;
+        const currentDate = new Date().toISOString().split('T')[0];
+        const status = currentDate >= schedule ? "Active": "Scheduled"
         const link = `http://localhost:5173/portal/${companyId}/${interviewName}`
       
         const interview: Interview = {
@@ -39,10 +41,11 @@ export async function action({request,params}:ActionFunctionArgs){
             interviewName,
             interviewDescription,
             status,
+            schedule,
             link
 
         };
-      
+
         const isInterviewAdded = await createInterview(interview);
     
         if(isInterviewAdded?.status == "200"){
@@ -54,5 +57,5 @@ export async function action({request,params}:ActionFunctionArgs){
             return
         }
     }
-    return redirect(`/`)
+    return null
 }

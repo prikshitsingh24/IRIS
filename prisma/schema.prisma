@@ -23,13 +23,14 @@ model  Company{
 }
 
 model Interview{
-  interviewId           String  @id @default(uuid())
-  interviewName         String  @unique
+  interviewId           String    @id @default(uuid())
+  createdAt             DateTime  @default(now())
+  interviewName         String    @unique
   interviewDescription  String
   status                String
   link                  String
   candidates            Candidate[]
-
+  schedule              String 
   companyId             String
 
   company               Company @relation(fields: [companyId], references: [companyId])

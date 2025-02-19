@@ -4,6 +4,7 @@ export interface Interview{
     interviewName:string,
     interviewDescription:string
     status:string,
+    schedule:string;
     link:string
 }
 

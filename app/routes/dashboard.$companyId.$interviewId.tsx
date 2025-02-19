@@ -8,29 +8,7 @@ import { UpdateInterview } from "types/interview";
 
 export default function Interview(){
     const interview = useLoaderData<any>();
-    
-    if (interview.status == "Inactive"){
-        return (
-            <div className="w-full h-full mt-4">
-               <div className="text-lg  text-textColorWhite">Update Your Interview</div>
-                <Form method="post" className="mt-5">
-                    <div className="flex flex-col space-y-8">
-                        <input type="text" name="interviewName" className="input-field w-1/2" placeholder="Name" defaultValue={interview.interviewName}/>
-                        <input type="text" name="interviewDescription"  className="input-field" placeholder="Description" defaultValue={interview.interviewDescription}/>
-                    </div>
-                    <div className="flex flex-col items-start mt-4">
-                    <div className="w-full h-full flex flex-row items-center">
-                        <div className="mr-2  text-textColorWhite">Interview status: </div>
-                        <input type="checkbox" name="status" className="checkBox" value="Active" defaultChecked={false}/>
-                    </div>
-                    <button className="secondary-btn h-10 w-36 mt-5">Update</button>
-                    </div>
-                </Form>
-            </div>
-        )
-    }
-
-    if (interview.status == "Active") {
+    console.log(interview.createdAt)
         return (
             <div className="w-full h-full mt-4">
                 <div className="text-3xl  text-textColorWhite">
@@ -40,7 +18,10 @@ export default function Interview(){
                     {interview.interviewDescription}
                 </div>
                 <div className="mt-2  text-textColorWhite">
-                    Status: {interview.status}
+                    Status: <span className={`${interview.status=="Active"?'text-green-500 ':interview.status=="Scheduled"?'text-yellow-500 ':'text-red-500'}`}>{interview.status}</span>
+                </div>
+                <div className="mt-2  text-textColorWhite">
+                    Created On: {interview.createdAt.toISOString().split('T')[0]}
                 </div>
                 <div className="mt-2  text-textColorWhite">
                     Link: <a href={interview.link} target="_blank"><span className="text-blue-400">{interview.link}</span></a>
@@ -86,7 +67,7 @@ export default function Interview(){
                 ))}
             </div>
         )
-    }
+    
 }
 
 

@@ -11,6 +11,7 @@ export async function createInterview(interview:Interview){
                 interviewDescription: interview.interviewDescription,
                 companyId:interview.companyId,
                 status:interview.status,
+                schedule:interview.schedule,
                 link:interview.link
             }
         })
