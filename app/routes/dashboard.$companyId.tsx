@@ -14,15 +14,26 @@ export default function Dashboard(){
                 </div>
                 <div className="mt-4 bg-bgColor3 h-[840px] rounded-lg p-2 shadow-md">
                     <div className="w-full h-full">
-                        <div className="grid grid-cols-[4fr_0.4fr_1fr] gap-10 ">
+                        <div className="grid grid-cols-[4fr_0.4fr_0.4fr_0.4fr_1fr] gap-10 ">
                             <div><input type="text" className="input-field w-full bg-bgColor3 text-textColorWhite" placeholder="Search."/></div>
                             <div className="flex justify-end w-full">
                             <select className="border p-2 bg-bgColor3 text-textColorWhite outline-none border-gray-400 rounded-lg h-[40px]">
-                                <option value="">Filter</option>
+                                <option value="">Status</option>
                                 <option value="active">Active</option>
                                 <option value="inactive">Inactive</option>
                                 <option value="paused">Paused</option>
                             </select>
+                            </div>
+                            <div className="flex justify-end w-full">
+                            <select className="border p-2 bg-bgColor3 text-textColorWhite outline-none border-gray-400 rounded-lg h-[40px]">
+                                <option value="">Roles</option>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="paused">Paused</option>
+                            </select>
+                            </div>
+                            <div className="w-full flex items-center">
+                            <input type="date" name="schedule" className="ml-2 bg-bgColor3 border border-gray-400  p-[6px] rounded-lg text-textColorWhite outline-none" />
                             </div>
                             <div className="flex flex-row justify-end"><NavLink to="createInterview"><button className="primary-btn h-10 w-36">Create Interview</button></NavLink></div>
                         </div>
