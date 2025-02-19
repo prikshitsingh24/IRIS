@@ -3,8 +3,10 @@ import { NavLink, Outlet, useLoaderData } from "@remix-run/react";
 import { fetchCompanyById } from "backend/dashboard/dashboard";
 
 
+
 export default function Dashboard(){
     const companyName = useLoaderData<any>();
+    
     return(
         <div className="w-full grid grid-cols-[1fr_1440px_1fr] bg-bgColor1 h-screen overflow-hidden">
             <div></div>
@@ -14,7 +16,7 @@ export default function Dashboard(){
                 </div>
                 <div className="mt-4 bg-bgColor3 h-[840px] rounded-lg p-2 shadow-md">
                     <div className="w-full h-full">
-                        <div className="grid grid-cols-[4fr_0.4fr_0.4fr_0.4fr_1fr] gap-10 ">
+                        <div className="grid grid-cols-[4fr_0.6fr_0.6fr_0.6fr_1fr] gap-10 ">
                             <div><input type="text" className="input-field w-full bg-bgColor3 text-textColorWhite" placeholder="Search."/></div>
                             <div className="flex justify-end w-full">
                             <select className="border p-2 bg-bgColor3 text-textColorWhite outline-none border-gray-400 rounded-lg h-[40px]">
@@ -38,7 +40,7 @@ export default function Dashboard(){
                             <div className="flex flex-row justify-end"><NavLink to="createInterview"><button className="primary-btn h-10 w-36">Create Interview</button></NavLink></div>
                         </div>
                         <div className="h-fit">
-                            <Outlet></Outlet>
+                            <Outlet />
                         </div>
                     </div>
                 </div>

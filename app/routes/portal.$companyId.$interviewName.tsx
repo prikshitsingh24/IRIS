@@ -1,26 +1,48 @@
 import { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/node";
 import { Form, useActionData, useLoaderData } from "@remix-run/react";
 import { getCompanyAndInterviewById, registerCandidateById } from "backend/portal/portal";
+import { useContext, useEffect, useState} from "react";
+import { DefaultEventsMap } from "socket.io";
+import { Socket } from "socket.io-client";
 import { Candidate } from "types/portal";
+import { connect } from "~/ws.client";
+import { wsContext } from "~/ws.context";
 
 
 
 export default function Portal(){
   const details = useLoaderData<any>();
-  const isCandidateRegistered = useActionData<boolean>();
-  console.log(details)
-     if (details.interviews[0].status == "Inactive"){
+  const candidateId = useActionData<any>();
+  let [socket, setSocket] =
+  useState<Socket<DefaultEventsMap, DefaultEventsMap>>();
+
+  useEffect(() => {
+    let connection:any = connect();
+    setSocket(connection);
+    return () => {
+      connection.close();
+    };
+  }, []);
+
+  const handleSubmitClick=()=>{
+    if(socket){
+      socket.emit("register",details.interviews[0].interviewId)
+    }
+  }
+  
+
+  if (details.interviews[0].status == "Cancel"){
       return(
           <div className="w-full h-screen overflow-hidden">
             <div className="flex justify-center items-center h-full text-3xl"> <span className="text-red-500 mr-2">OOPS!</span>Application doesnot exist or is not active any more</div>
           </div>
       )
-     }
+  }
 
-    if (details.interviews[0].status == "Active"){
+  if (details.interviews[0].status == "Scheduled"){
         return(
           <div className="w-full h-screen overflow-hidden">
-            {isCandidateRegistered && (
+            {candidateId && (
               <div className="fixed w-full h-full flex justify-center items-center backdrop-blur-sm">
                 <div className="w-72 h-40 shadow-lg rounded-md p-2">
                   You have successfully registered for the interview in {details.companyName}
@@ -54,7 +76,7 @@ export default function Portal(){
                   <div className="mt-4">
                     <input type="text" hidden name="interviewId" value={details.interviews[0].interviewId} />
                     <input type="text" hidden name="companyName" value={details.companyName} />
-                  <button className="primary-btn w-28 h-10">Submit</button>
+                  <button className="primary-btn w-28 h-10" onClick={handleSubmitClick}>Submit</button>
                   </div>
                 </Form>
               </div>
@@ -62,7 +84,7 @@ export default function Portal(){
             </div>
           </div>
       )
-    }
+  }
 }
 
 
@@ -99,14 +121,14 @@ export async function action({request}:ActionFunctionArgs){
     candidateNumber
   };
 
-  const isCandidateRegistered = await registerCandidateById(candidate,interviewId,companyName);
+  // const isCandidate = await registerCandidateById(candidate,interviewId,companyName);
 
-  if (isCandidateRegistered.status =="200"){
-    return true;
-  }
+  // if (isCandidate.status =="200"){
+  //   return isCandidate.data;
+  // }
 
-  if (isCandidateRegistered.status =="404"){
-    return false;
-  }
-
+  // if (isCandidate.status =="404"){
+  //   return false;
+  // }
+  return null
 }

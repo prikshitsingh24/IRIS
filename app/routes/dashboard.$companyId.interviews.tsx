@@ -1,11 +1,34 @@
 import { NavLink, redirect, useLoaderData } from "@remix-run/react";
 import { fetchAllInterviewById } from "backend/dashboard/dashboard";
+import { useContext, useEffect, useState} from "react";
 import { LoaderFunctionArgs } from "react-router";
+import { DefaultEventsMap, Socket } from "socket.io";
 import { InterviewDetails } from "types/dashboard";
+import { connect } from "~/ws.client";
+import { wsContext } from "~/ws.context";
 
 
 export default function Interviews(){
     const interviews = useLoaderData<InterviewDetails[] | any>();
+    let [socket, setSocket] = useState<Socket<DefaultEventsMap, DefaultEventsMap>>();
+    let [updateInterviewId,setUpdateInterviewId] = useState("");
+    useEffect(() => {
+      let connection:any = connect();
+      setSocket(connection);
+      return () => {
+        connection.close();
+      };
+    }, []);
+  
+
+    useEffect(() => {
+        if (!socket) return;
+        socket.on("update", (data:any) => {
+          console.log(data);
+          setUpdateInterviewId(data);
+        });
+    }, [socket]);
+
     return(
         <div className="w-full h-[760px] overflow-y-scroll grid grid-cols-3 gap-4 mt-4">
             {interviews.data.map((interview:InterviewDetails,index:number)=>(
@@ -23,7 +46,7 @@ export default function Interviews(){
                     Description: {interview.interviewDescription.length>40?interview.interviewDescription.slice(0,40):interview.interviewDescription}{interview.interviewDescription.length>40?'...':''}
                     </div>
                     <div className="w-full text-sm mt-4">
-                    Candidates: 3
+                    Candidates: {updateInterviewId==interview.interviewId?1:0}
                     </div>
                     <NavLink to={`/dashboard/${interviews.id}/${interview.interviewId}`}>
                     <div className="flex flex-row justify-center mt-6">

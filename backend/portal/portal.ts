@@ -76,7 +76,7 @@ export async function registerCandidateById(candidate:Candidate,interviewId:stri
             }
           });
 
-        return {status:"200"}
+        return {status:"200",data:registeredCandidate.candidateId}
     }catch(error){
         return {status:"404",error:error}
     }
