@@ -8,6 +8,29 @@ body {
 
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: theme('colors.scrollbar-thumb');
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: theme('colors.scrollbar-thumb-hover');
+}
+
+::-webkit-scrollbar-track {
+  background-color: theme('colors.scrollbar-track');
+  border-radius: 4px;
+}
+
+
+::-webkit-scrollbar-corner {
+  background-color: theme('colors.scrollbar-track');
+}
+
 @layer components {
     .primary-btn {
       @apply bg-primary

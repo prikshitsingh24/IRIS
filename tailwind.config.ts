@@ -25,7 +25,10 @@ export default {
         bgColor1:"#171717",
         bgColor2:'#FFFFFF',
         bgColor3:"#262626",
-        btnColorBlue:"#3498DB"
+        btnColorBlue:"#3498DB",
+        'scrollbar-thumb': '#262626',
+        'scrollbar-thumb-hover': '#262626',
+        'scrollbar-track': '#171717',
       },
     },
   },
