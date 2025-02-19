@@ -12,7 +12,7 @@ export async function login(credentails: LoginCredentails){
                 companyPassword: credentails.companyPassword
             }
         })
-
+        
         return {status:"200",id:company[0].companyId}
     }catch(error){
         return {status:"404",error:error}

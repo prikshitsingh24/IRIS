@@ -32,7 +32,7 @@ model Interview{
   candidates            Candidate[]
   schedule              String 
   companyId             String
-
+  noOfCandidates        Int
   company               Company @relation(fields: [companyId], references: [companyId])
 }
 

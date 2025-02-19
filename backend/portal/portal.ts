@@ -9,7 +9,7 @@ var transporter = nodemailer.createTransport({
       user: process.env.MAIL,
       pass: process.env.MAIL_PASSWORD
     }
-  });
+});
 
 const prisma = new PrismaClient()
 
@@ -77,6 +77,26 @@ export async function registerCandidateById(candidate:Candidate,interviewId:stri
           });
 
         return {status:"200",data:registeredCandidate.candidateId}
+    }catch(error){
+        return {status:"404",error:error}
+    }
+}
+
+
+export async function updateCandidateCountById(companyId:string,interviewName:string){
+    try{
+        const udpateCandidate = await prisma.interview.update({
+            where:{
+                companyId:companyId,
+                interviewName:interviewName
+            },
+            data:{
+                noOfCandidates:{
+                    increment:1
+                }
+            }
+        })
+        return {status:"200",data:"Done"}
     }catch(error){
         return {status:"404",error:error}
     }

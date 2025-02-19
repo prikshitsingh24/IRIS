@@ -8,7 +8,6 @@ import { UpdateInterview } from "types/interview";
 
 export default function Interview(){
     const interview = useLoaderData<any>();
-    console.log(interview.createdAt)
         return (
             <div className="w-full h-full mt-4">
                 <div className="text-3xl  text-textColorWhite">

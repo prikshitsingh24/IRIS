@@ -1,6 +1,6 @@
 import { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/node";
 import { Form, useActionData, useLoaderData } from "@remix-run/react";
-import { getCompanyAndInterviewById, registerCandidateById } from "backend/portal/portal";
+import { getCompanyAndInterviewById, registerCandidateById, updateCandidateCountById } from "backend/portal/portal";
 import { useContext, useEffect, useState} from "react";
 import { DefaultEventsMap } from "socket.io";
 import { Socket } from "socket.io-client";
@@ -24,14 +24,14 @@ export default function Portal(){
     };
   }, []);
 
-  const handleSubmitClick=()=>{
+  const handleSubmitClick=async ()=>{
     if(socket){
       socket.emit("register",details.interviews[0].interviewId)
     }
   }
   
 
-  if (details.interviews[0].status == "Cancel"){
+  if (details.interviews[0].status == "Cancel" || details.interviews[0].status == "Scheduled"){
       return(
           <div className="w-full h-screen overflow-hidden">
             <div className="flex justify-center items-center h-full text-3xl"> <span className="text-red-500 mr-2">OOPS!</span>Application doesnot exist or is not active any more</div>
@@ -39,7 +39,7 @@ export default function Portal(){
       )
   }
 
-  if (details.interviews[0].status == "Scheduled"){
+  if (details.interviews[0].status == "Active"){
         return(
           <div className="w-full h-screen overflow-hidden">
             {candidateId && (
@@ -106,7 +106,9 @@ export async function loader({params}:LoaderFunctionArgs){
 }
 
 
-export async function action({request}:ActionFunctionArgs){
+export async function action({request,params}:ActionFunctionArgs){
+  const companyId = await params.companyId;
+  const interviewName = await params.interviewName;
   const formData = await request.formData();
   const formObject = Object.fromEntries(formData);
   const candidateName = formObject['candidateName'] as string;
@@ -121,14 +123,15 @@ export async function action({request}:ActionFunctionArgs){
     candidateNumber
   };
 
-  // const isCandidate = await registerCandidateById(candidate,interviewId,companyName);
+  const isCandidate = await registerCandidateById(candidate,interviewId,companyName);
 
-  // if (isCandidate.status =="200"){
-  //   return isCandidate.data;
-  // }
+  if (isCandidate.status =="200" && companyId && interviewName){
+    await updateCandidateCountById(companyId,interviewName);
+    return isCandidate.data;
+  }
 
-  // if (isCandidate.status =="404"){
-  //   return false;
-  // }
+  if (isCandidate.status =="404"){
+    return false;
+  }
   return null
 }

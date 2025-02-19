@@ -12,7 +12,8 @@ export async function createInterview(interview:Interview){
                 companyId:interview.companyId,
                 status:interview.status,
                 schedule:interview.schedule,
-                link:interview.link
+                link:interview.link,
+                noOfCandidates:0
             }
         })
         return {status:"200"}

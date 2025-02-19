@@ -1,3 +1,5 @@
+
+
 const path = require("path");
 const express = require("express");
 const { createServer } = require("http");
@@ -23,8 +25,8 @@ const io = new Server(httpServer, {
 
 io.on("connection", (socket) => {
   socket.on("register",(data)=>{
-    console.log("asd fasdf asd fasdf ",data)
     io.emit("update",data);
+
   })
 });
 

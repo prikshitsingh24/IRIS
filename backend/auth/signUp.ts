@@ -12,7 +12,7 @@ export async function signUp(credentails: SignUpCredentials){
             }
         })
 
-        if (isCompanyExist) {
+        if (isCompanyExist.length > 0) {
             return {status:"404",error:"Company already exists with this id"}
         }
 

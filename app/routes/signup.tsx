@@ -57,6 +57,8 @@ export async function action({ request }: ActionFunctionArgs) {
 
     if (isCompanyAdded.status == "404"){
         console.log(isCompanyAdded.error)
+        return null
     }
+
 
 }

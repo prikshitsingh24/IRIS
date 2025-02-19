@@ -10,7 +10,8 @@ export interface InterviewDetails {
     interviewDescription:string,
     status:string,
     schedule:string,
-    link:string
+    link:string,
+    noOfCandidates:number
 }
 
 export interface Candidate{
