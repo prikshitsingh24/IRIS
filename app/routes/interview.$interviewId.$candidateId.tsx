@@ -35,13 +35,13 @@ export default function Interview(){
     }, []);
 
     return(
-        <div className="grid grid-cols-[1fr_1280px_1fr] w-full h-screen overflow-hidden p-4 ">
+        <div className="grid grid-cols-[1fr_1280px_1fr] bg-bgColor1 w-full h-screen overflow-hidden p-4 ">
             <div></div>
-            <div className="w-full h-full border-2 rounded-lg grid grid-rows-[2fr_4fr] relative">
+            <div className="w-full h-full border rounded-lg grid bg-bgColor3 grid-rows-[2fr_4fr] relative">
                 <div className="grid grid-cols-2 border-b-2">
                     <div className="border-r-2 p-2">
-                        <div className="text-2xl">{details.interview.interviewName}</div>
-                        <div className="mt-4">Description: <br />{details.interview.interviewDescription}</div>
+                        <div className="text-2xl text-textColorWhite">{details.interview.interviewName}</div>
+                        <div className="mt-4 text-textColorWhite">Description: <br />{details.interview.interviewDescription}</div>
                     </div>
                     <div className="flex flex-col items-center">
                         <div className="h-[200px] border-2 w-[200px] mt-4 rounded-lg">
@@ -52,7 +52,7 @@ export default function Interview(){
                         className="w-full h-full rounded-lg object-cover"
                         ></video>
                         </div>
-                        <div className="mt-2">{details.candidate.candidateName}</div>
+                        <div className="mt-2 text-textColorWhite">{details.candidate.candidateName}</div>
                     </div>
                 </div>
                 <div className="w-full">
@@ -62,7 +62,7 @@ export default function Interview(){
                         <input
                             type="text"
                             placeholder="Write your answer..."
-                            className="flex-1 p-3 outline:none rounded-lg bg-background focus:outline-none focus:border-blue-500 "
+                            className="flex-1 p-3 outline:none rounded-lg bg-bgColor3 text-textColorWhite focus:outline-none focus:border-blue-500 "
                         />
                         <button
                             type="button"
