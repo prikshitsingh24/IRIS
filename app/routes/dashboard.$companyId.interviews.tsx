@@ -13,7 +13,7 @@ export default function Interviews(){
     const interviews = useLoaderData<InterviewDetails[] | any>();
     let [socket, setSocket] = useState<Socket<DefaultEventsMap, DefaultEventsMap>>();
     let [updateInterviewId,setUpdateInterviewId] = useState("");
-   
+    let [counter,setCounter] = useState(0)
     useEffect(() => {
       let connection:any = connect();
       setSocket(connection);
@@ -27,6 +27,8 @@ export default function Interviews(){
         if (!socket) return;
         socket.on("update", (data:any) => {
           setUpdateInterviewId(data);
+          console.log(counter)
+          setCounter((prevCounter) => prevCounter + 1);
         });
     }, [socket]);
 
@@ -49,7 +51,7 @@ export default function Interviews(){
                     Description: {interview.interviewDescription.length>40?interview.interviewDescription.slice(0,40):interview.interviewDescription}{interview.interviewDescription.length>40?'...':''}
                     </div>
                     <div className="w-full text-sm mt-4">
-                    Candidates: {updateInterviewId == interview.interviewId?interview.noOfCandidates+1: interview.noOfCandidates}
+                    Candidates: {updateInterviewId == interview.interviewId?interview.noOfCandidates+counter: interview.noOfCandidates}
                     </div>
                     <NavLink to={`/dashboard/${interviews.id}/${interview.interviewId}`}>
                     <div className="flex flex-row justify-center mt-6">

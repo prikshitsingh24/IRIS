@@ -28,7 +28,7 @@ export default function Interview(){
                 <div className="mt-10 text-xl  text-textColorWhite">
                     Candidates
                 </div>
-                <div className="grid grid-cols-[1fr_3fr_4fr_3fr_2fr] mb-4 border rounded-md p-2 border-gray-500 cursor-pointer  text-textColorWhite mt-2">
+                <div className="grid grid-cols-[1fr_3fr_4fr_3fr_2fr] mb-4 border rounded-md p-2 border-gray-500 cursor-pointer  text-textColorWhite mt-2 mr-4">
                         <div>
                             S.no
                         </div>
@@ -45,8 +45,9 @@ export default function Interview(){
                             Score
                         </div>
                 </div>
-                {interview.candidates.map((candidate:Candidate,index:any)=>(
-                    <div className="grid grid-cols-[1fr_3fr_4fr_3fr_2fr] mb-4 border rounded-md p-2 cursor-pointer border-gray-500 text-textColorWhite mt-2">
+                <div className="overflow-y-scroll h-[420px]">
+                    {interview.candidates.map((candidate:Candidate,index:any)=>(
+                    <div className="grid grid-cols-[1fr_3fr_4fr_3fr_2fr] mb-4 border rounded-md p-2 cursor-pointer  border-gray-500 text-textColorWhite mt-2 mr-2" key={index}>
                        <div>
                            {index+1}
                        </div>
@@ -64,6 +65,7 @@ export default function Interview(){
                        </div>
                     </div>
                 ))}
+           </div>
             </div>
         )
     
